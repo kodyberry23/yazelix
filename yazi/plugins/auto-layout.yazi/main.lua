@@ -18,8 +18,8 @@
 --   })
 
 local config = {
-  breakpoint_large = 80,  -- default large window threshold
-  breakpoint_medium = 40, -- default medium window threshold
+  breakpoint_large = 100,  -- default large window threshold
+  breakpoint_medium = 80, -- default medium window threshold
 }
 
 local M = {}
