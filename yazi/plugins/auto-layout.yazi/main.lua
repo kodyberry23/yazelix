@@ -48,9 +48,9 @@ function Tab:layout()
     self._chunks = ui.Layout()
       :direction(ui.Layout.HORIZONTAL)
       :constraints({
-        ui.Constraint.Ratio(0,                              MANAGER.ratio.all),
-        ui.Constraint.Ratio(MANAGER.ratio.current + MANAGER.ratio.parent, MANAGER.ratio.all),
         ui.Constraint.Ratio(MANAGER.ratio.preview   + MANAGER.ratio.parent, MANAGER.ratio.all),
+        ui.Constraint.Ratio(MANAGER.ratio.current + MANAGER.ratio.parent, MANAGER.ratio.all),
+        ui.Constraint.Ratio(0, MANAGER.ratio.all),
       })
       :split(self._area)
   else

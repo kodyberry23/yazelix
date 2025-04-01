@@ -1,5 +1,5 @@
 #### Command Config ####
-command = "/opt/homebrew/bin/nu -c 'zellij --debug --config-dir ~/.config/yazelix/zellij attach --create yazelix_ghostty options --default-layout yazelix'"
+command = "/opt/homebrew/bin/nu -c '/opt/homebrew/bin/zellij --config-dir $"($env.HOME)/.config/yazelix/zellij" attach --create yazelix_ghostty options --default-layout yazelix'"
 
 #### Theme Configs ####
 theme = "catppuccin-mocha"
