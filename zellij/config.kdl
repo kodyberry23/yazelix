@@ -293,8 +293,8 @@ default_layout "yazelix"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
-// 
-// layout_dir "/tmp"
+
+layout_dir "./.config/yazelix/zellij/layouts"
  
 // The folder in which Zellij will look for themes
 // (Requires restart)

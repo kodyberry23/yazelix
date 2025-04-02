@@ -1,5 +1,7 @@
 #### Command Config ####
-command = "/opt/homebrew/bin/nu -c '/opt/homebrew/bin/zellij --config-dir $"($env.HOME)/.config/yazelix/zellij" attach --create yazelix_ghostty options --default-layout yazelix'"
+# command = "/opt/homebrew/bin/nu -c '/opt/homebrew/bin/zellij --config-dir $"($env.HOME)/.config/yazelix/zellij" attach --create yazelix_ghostty options --default-layout yazelix'"
+
+command = "/opt/homebrew/bin/nu -c 'zellij --new-session-with-layout welcome --session ghostty'"
 
 #### Theme Configs ####
 theme = "catppuccin-mocha"
@@ -13,7 +15,7 @@ window-height = 60
 window-width = 240
 
 #### Font Configs ####
-font-family = "JetBrainsMono Nerd Font"
+font-family = "ZedMono Nerd Font"
 font-size = 14
 
 #### General Configs ####

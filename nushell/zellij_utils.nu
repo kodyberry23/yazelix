@@ -112,6 +112,24 @@ export def open_new_helix_pane [file_path: path, yazi_id: string] {
         
         zellij action rename-tab $tab_name
         log_to_file "open_helix.log" $"Renamed tab to: ($tab_name)"
+
+        # Store the git command result in a variable
+        let git_root = do { 
+            git rev-parse --show-toplevel
+        } | complete
+        
+        # Determine the directory to use
+        let target_dir = if $git_root.exit_code == 0 { 
+            $git_root.stdout | str trim
+        } else { 
+            $env.PWD 
+        }
+
+        log_to_file "open_helix.log" $"Opening new zsh terminal pane with cwd: ($target_dir)"
+        # Run zellij with the determined directory
+        zellij run --name "zsh terminal" -- bash -c $"cd \"($target_dir)\" && exec /bin/zsh"
+
+        zellij action focus-previous-pane
     } catch {|err|
         log_to_file "open_helix.log" $"Error executing command: nu -c \"($cmd)\"\nError details: ($err.msg)"
         print $"Error executing zellij command: nu -c \"($cmd)\"\nDetails: ($err.msg)"

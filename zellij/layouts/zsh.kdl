@@ -1,0 +1,17 @@
+layout {
+    tab_template name="ui" {
+        pane size=1 borderless=true {
+           plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=1 borderless=true {
+           plugin location="zellij:status-bar"
+        }
+    }
+
+    ui {
+        pane name="zsh terminal" {
+            command "/bin/zsh"
+        }
+    }
+}

@@ -14,20 +14,36 @@ layout {
            plugin location="zellij:tab-bar"
         }
         pane split_direction="vertical" {
-            pane name="sidebar" {
+            pane name="yazi" {
                 command "/opt/homebrew/bin/nu"
+                cwd "./projects"
                 args "-c" "with-env { YAZI_CONFIG_HOME: ($env.HOME | path join '.config' 'yazelix' 'yazi') } { /opt/homebrew/bin/yazi }"
-            	size "100%"
+                size "100%"
             }
         }
         pane size=1 borderless=true {
            plugin location="zellij:status-bar"
         }
     }
+
+    swap_tiled_layout name="pane_with_term" {
+        ui min_panes=4 {
+            pane split_direction="vertical" {
+                pane name="yazi" {
+                    command "/opt/homebrew/bin/nu"
+                    args "-c" "with-env { YAZI_CONFIG_HOME: ($env.HOME | path join '.config' 'yazelix' 'yazi') } { /opt/homebrew/bin/yazi }"
+                    size "15%"
+                }
+                pane split_direction="horizontal" {
+                    pane split_direction="vertical" size="75%"
+                    pane split_direction="vertical" name="zsh terminal" size="25%"
+                }
+            }
+        }
+    }
 }
 
 // IMPORTANT REFERENCE
-
 // keybinds {
 //     shared {
 //         // Previously: Ctrl + o (in helix: jump_backward)
