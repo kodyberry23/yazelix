@@ -19,6 +19,9 @@ cursorline = true
 cursorcolumn = false
 gutters = ["diagnostics", "line-numbers", "spacer", "diff"]
 
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
 [editor.statusline]
 left = ["mode", "spinner", "file-name", "file-modification-indicator"]
 center = ["diagnostics", "workspace-diagnostics"]
